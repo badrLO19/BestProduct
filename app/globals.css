@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import de la police Inter et Poppins depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-brand-dark text-gray-100 font-sans antialiased;
+    background-image: linear-gradient(135deg, #2e2a27 0%, #4e3b2b 50%, #3a2f28 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer components {
+  /* Styles pour les boutons */
+  .btn-primary {
+    @apply bg-gradient-copper text-white font-semibold py-3 px-6 rounded-lg
+           shadow-copper hover:shadow-copper-lg transition-all duration-300
+           hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-brand-brown text-brand-light border-2 border-brand-copper
+           font-semibold py-3 px-6 rounded-lg hover:bg-brand-copper
+           hover:text-white transition-all duration-300;
+  }
+
+  /* Styles pour les cartes */
+  .card {
+    @apply bg-gradient-to-br from-brand-brown/80 to-brand-dark/90
+           backdrop-blur-sm border border-brand-copper/30 rounded-xl
+           shadow-lg hover:shadow-copper transition-all duration-300
+           hover:scale-[1.02];
+  }
+
+  /* Styles pour les inputs */
+  .input {
+    @apply bg-brand-brown/50 border-2 border-brand-copper/40
+           text-gray-100 placeholder-gray-400 rounded-lg px-4 py-3
+           focus:outline-none focus:border-brand-copper focus:ring-2
+           focus:ring-brand-copper/50 transition-all duration-300;
+  }
+
+  /* Animation de chargement personnalisée */
+  .loader {
+    @apply animate-spin-slow text-brand-copper;
+  }
+
+  /* Effet de brillance métallique */
+  .metallic-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metallic-shine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-copper bg-clip-text text-transparent;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Styles pour le scroll personnalisé */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-brand-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-copper rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-accent;
+}
