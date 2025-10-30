@@ -14,6 +14,8 @@ module.exports = {
         'brand-copper': '#b87333',
         'brand-light': '#d4a574',
         'brand-accent': '#8b6914',
+        // Border color for default borders
+        'border': 'hsl(30 10% 30% / 0.3)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
